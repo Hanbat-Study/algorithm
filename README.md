@@ -27,5 +27,4 @@
 ## 📚 문제집
 (예시)
 - Java 기초 100제 [🔗링크](https://codeup.kr/problemset.php?search=%EA%B8%B0%EC%B4%88100%EC%A0%9C)
-- sds 22년 하계 대학생 알고리즘 [🔗링크](https://tar-zircon-a90.notion.site/22-1-2beb08b8ec134ee4a9d3a691c6514362)
 - 모의 SW 역량 테스트 [🔗링크](https://swexpertacademy.com/main/userpage/code/userProblemBoxDetail.do?probBoxId=AV5Po0AqAPwDFAUq&leftPage=1&curPage=userpage&userId=SWEAC&&&&)
