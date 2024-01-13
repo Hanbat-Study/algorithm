@@ -2,10 +2,10 @@
 ## 👥 스터디 멤버
 ## 😁 팀원 소개
 
-| 이건희             | 백하람               | 장정현               | 서두나                  | 이지수                                   |                                                                                                   
+| 이건희             | 백하람               | 김나영               | 서두나                  | 이지수                                   |                                                                                                   
 | ----------------- | -------------------- | ------------------- | ----------------------- | --------------------------------------- | 
-| <img src="https://avatars.githubusercontent.com/u/92250144?v=4" alt='@GeonHui2' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/74824057?v=4" alt='@ramrami-B' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/102511188?v=4" alt='@jeonghyeon4782' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/70767115?v=4" alt='@ensk26' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/39691728?v=4" alt='@jisooolee' width="130" height="130"> | 
-| [@GeonHui2](https://github.com/GeonHui2)                                                         | [@ramrami-B](https://github.com/ramrami-B)                                                                  | [@jeonghyeon4782](https://github.com/jeonghyeon4782)                                                               | [@ensk26](https://github.com/ensk26)                                                        | [@jisooolee](https://github.com/jisooolee)   
+| <img src="https://avatars.githubusercontent.com/u/92250144?v=4" alt='@GeonHui2' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/74824057?v=4" alt='@ramrami-B' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/96613100?v=4" alt='@skdudddl' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/70767115?v=4" alt='@ensk26' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/39691728?v=4" alt='@jisooolee' width="130" height="130"> | 
+| [@GeonHui2](https://github.com/GeonHui2)                                                         | [@ramrami-B](https://github.com/ramrami-B)                                                                  | [@skdudddl](https://github.com/skdudddl)                                                               | [@ensk26](https://github.com/ensk26)                                                        | [@jisooolee](https://github.com/jisooolee)   
 
 ## 💪🏻 스터디 진행 방식
 (예시)
