@@ -31,13 +31,6 @@ public class Solution {
 				}
 			}
 			
-			for(int i = 0; i < N; i++) {
-				for(int j = 0; j < N; j++) {
-					if(table[i][j] == -1)
-						answer++;
-				}
-			}
-			
 			System.out.printf("#%d %d\n", t+1, answer);
 		}
 	}
