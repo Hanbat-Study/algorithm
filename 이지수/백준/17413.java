@@ -7,14 +7,11 @@ public class Main {
 		
 		String str = br.readLine();
 		boolean isTag = false;
-		boolean isWord = false;
 		List<Character> word = new ArrayList<>();
 		for(int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
-			if(c == '<') {
+			if(c == '<')
 				isTag = true;
-				isWord = false;
-			}
 			else if(c == '>') {
 				isTag = false;
 				System.out.print(c);
@@ -23,25 +20,19 @@ public class Main {
 			
 			if(isTag)
 				System.out.print(c);
+			else if(c != ' ' && i != str.length() - 1 && str.charAt(i + 1) != '<')
+				word.add(c);
 			else {
-				if(c != ' ' && i != str.length() - 1 && str.charAt(i + 1) != '<')
-					word.add(c);
-				else {
-					if(i == str.length() - 1 || str.charAt(i + 1) == '<')
-						System.out.print(c);
+				if(i == str.length() - 1 || str.charAt(i + 1) == '<')
+					System.out.print(c);
 					
-					for(int j = word.size() - 1; j >= 0; j--)
-						System.out.print(word.get(j));
+				for(int j = word.size() - 1; j >= 0; j--)
+					System.out.print(word.get(j));
 					
-					if(c == ' ')
-						System.out.print(c);
+				if(c == ' ')
+					System.out.print(c);
 					
-					if(c == '<')
-						isTag = true;
-					
-					word.clear();
-					isWord = false;
-				}
+				word.clear();
 			}
 		}
 				
