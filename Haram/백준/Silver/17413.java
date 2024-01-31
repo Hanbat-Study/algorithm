@@ -1,56 +1,45 @@
-// 시간 초과
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
+	static StringBuilder sb;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
 		String S = br.readLine();
-		String word = "";
-		String result = "";
-		
 		boolean openTag = false;
+		Stack<String> word = new Stack<>();
+		sb = new StringBuilder();
 		
 		for(int i = 0; i < S.length(); i++) {
-			if(!openTag && S.charAt(i) != '<' && S.charAt(i) != '>' && S.charAt(i) != ' ')
-				word += Character.toString(S.charAt(i));
+			if(!openTag && S.charAt(i) != '<' && S.charAt(i) != '>' && S.charAt(i) != ' ') {
+				word.push(Character.toString(S.charAt(i)));
+			}
 			
+			if(!word.isEmpty() && !openTag && (i == S.length()-1 || S.charAt(i) == '<' || S.charAt(i) == ' ')) {
+				while(!word.isEmpty())
+					sb.append(word.pop());	
+			}
+			
+			if(!openTag && S.charAt(i) == ' ') {
+				sb.append(" ");
+			}
+
 			if(S.charAt(i) == '<') {
 				openTag = true;
-				System.out.print(reverse(word));
-				word = "";
+			}
+			
+			if(openTag) {
+				sb.append(Character.toString(S.charAt(i)));
 			}
 			
 			if(S.charAt(i) == '>') {
-				result += ">";
-				System.out.print(result);
-				result = "";
 				openTag = false;
 				continue;
 			}
-			
-			if(S.charAt(i) == ' ' && !openTag) {
-				System.out.print(reverse(word) + " ");
-				word = "";
-				continue;
-			}
-				
-			if(openTag) 
-				result += Character.toString(S.charAt(i));
-			
-			if(!openTag && i == S.length()-1) {
-				result += reverse(word);
-				word = "";
-				continue;
-			}
 		}	
-	}
-
-	private static String reverse(String word) {
-		String result = "";
-		for(int i = word.length()-1; i > -1; i--) 
-			result += Character.toString(word.charAt(i));
-		return result;
+		
+		System.out.println(sb);
 	}
 }
