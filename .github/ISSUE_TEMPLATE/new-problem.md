@@ -1,6 +1,6 @@
 ---
 name: New Solving Problem
-about: Create an Issue for solved the problem at the first time
+about: Create an Issue for solving problem together
 title: "[Level] Num. Title "
 labels: ''
 assignees: jisooolee, ensk26, GeonHui2, skdudddl, ramrami-S
