@@ -1,6 +1,6 @@
 ---
-name: New Solving Problem
-about: Create an Issue for solving problem together
+name: New Problem
+about: Create an Issue for sharing solution after solving problem
 title: "[Level] Num. Title "
 labels: ''
 assignees: jisooolee, ensk26, GeonHui2, skdudddl, ramrami-S
