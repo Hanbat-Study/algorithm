@@ -10,6 +10,11 @@ assignees: jisooolee, ensk26, GeonHui2, skdudddl, ramrami-S
 🔗 문제 링크
 https://www.acmicpc.net/problem/2468
 
+
+🔥 메모리: 
+🔥 시간: 
+
+
 💡 풀이 사항
 📆풀이 일자: 2024.00.00
 ⏰풀이 시간: 00분 00초
