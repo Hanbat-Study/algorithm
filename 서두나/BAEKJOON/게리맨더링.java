@@ -1,8 +1,9 @@
-package algorithm.baekjoon.s_0219;
+package com.jurib.offline16;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -14,8 +15,8 @@ public class Main_17471 {
 	static ArrayList<ArrayList<Integer>> graph;
 	static boolean[] visited;
 	static Queue<Integer> q = new LinkedList<>();
-	static int[] order;
 	static int ans = Integer.MAX_VALUE;
+	static boolean[] check;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -47,7 +48,7 @@ public class Main_17471 {
 		visited = new boolean[n + 1];
 		dfs(1); // 그래프가 몇개가 있는지 확인한다.
 
-		System.out.println(ans);
+		System.out.println(ans == Integer.MAX_VALUE ? -1 : ans);
 	}
 
 	static void getCom(int depth) {
@@ -70,41 +71,43 @@ public class Main_17471 {
 	private static void getDiff() {
 		int a = 0;
 		int b = 0;
-		int a_num = 0;
-		int b_num = 0;
+
+		// 해당 조합이 적합한지
 		for (int i = 1; i < n + 1; i++) {
 			if (visited[i]) {
-				a++;
-				a_num = i;
-			} else {
-				// b++;
-				b_num = i;
+				a = i;
+				break;
 			}
 		}
-		int people_a = 0;
-		int people_b = 0;
 
-		System.out.println(bfs(a_num) + " " + a + " " + bfs(b_num) + " " + (n - a));
-		int b_check=bfs(b_num);
-		if (bfs(a_num) == a && (b_check == n - a || b_check == a)) { // 둘 다 인접해 있는 그래프
+		for (int i = 1; i < n + 1; i++) {
+			if (!visited[i]) {
+				b = i;
+				break;
+			}
+		}
+
+		int a_sum = 0;
+		int b_sum = 0;
+		check = new boolean[n + 1];
+
+		if ((a != 0 && b != 0) && bfs(a, true) + bfs(b, false) == n) { // 두개의 합이 n일 때 모두 인접해 있다.
+
 			for (int i = 1; i < n + 1; i++) {
 				if (visited[i]) {
-					people_a += people[i];
-
+					a_sum += people[i];
 				} else {
-					people_b += people[i];
-
+					b_sum += people[i];
 				}
+
 			}
-			System.out.println(people_a + " " + people_b);
-			ans = Math.min(ans, Math.abs(people_a - people_b));
+			ans = Math.min(ans, Math.abs(a_sum - b_sum));
 		}
 
 	}
 
-	private static int bfs(int num) {
+	private static int bfs(int num, boolean k) {
 
-		boolean[] check = new boolean[n + 1];
 		q.offer(num);
 		check[num] = true;
 		int cnt = 1;
@@ -112,12 +115,10 @@ public class Main_17471 {
 		while (!q.isEmpty()) {
 			int cur = q.poll();
 			for (int next : graph.get(cur)) {
-				if (!check[next]) {
+				if (!check[next] && visited[next] == k) {
 					check[next] = true;
 					q.offer(next);
-					if (visited[next]) {
-						cnt++;
-					}
+					cnt++;
 				}
 			}
 
