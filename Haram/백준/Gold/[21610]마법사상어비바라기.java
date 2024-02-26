@@ -8,6 +8,7 @@ public class Main {
 	static int N, M, map[][];
 	static boolean cloud[][];
 	
+	// 0, 1, 2, 3, 4, 5, 6, 7
 	// ←, ↖, ↑, ↗, →, ↘, ↓, ↙ 
 	static int[] dx = {0, -1, -1, -1, 0, 1, 1, 1};
 	static int[] dy = {-1, -1, 0, 1, 1, 1, 0, -1};
@@ -59,31 +60,14 @@ public class Main {
 	}
 
 	private static void rain() {
-		// 대각선 4방향 탐색을 위한 변수
-		int[] cdx = {-1, -1, 1, 1};
-		int[] cdy = {-1, 1, -1, 1};
-		
-		// 물이 증가한 곳
-		boolean[][] watered = new boolean[N][N];
-
 		for(int i = 0; i < N; i++) {			
 			for(int j = 0; j < N; j++) {
 				if(cloud[i][j]) {			
-					map[i][j] += 1;
-					watered[i][j] = true;
-					cloud[i][j] = false;
-				}
-			}
-		}
-		
-		for(int i = 0; i < N; i++) {			
-			for(int j = 0; j < N; j++) {
-				if(watered[i][j]) {					
 					int cnt = 0;
-					for(int d = 0; d < 4; d++) {
-						int nx = i + cdx[d];
-						int ny = j + cdy[d];
-						if(isIn(nx, ny) && map[nx][ny] > 0) cnt++;
+					for(int d = 1; d < 8; d=d+2) {
+						int nx = i + dx[d];
+						int ny = j + dy[d];
+						if(isIn(nx, ny) && map[nx][ny] >= 1) cnt++;
 					}
 					map[i][j] += cnt;
 				}
@@ -91,11 +75,14 @@ public class Main {
 		}
 		
 		for(int i = 0; i < N; i++) {			
-			for(int j = 0; j < N; j++) {				
-				if(!watered[i][j] && map[i][j] >= 2) {
-					cloud[i][j] = true;
-					map[i][j] -= 2;	
+			for(int j = 0; j < N; j++) {
+				if(cloud[i][j]) {
+					cloud[i][j] = false;
 				}
+				else if(map[i][j] >= 2) {
+					map[i][j] -= 2;	
+					cloud[i][j] = true;
+				}				
 			}
 		}
 	}
@@ -107,6 +94,8 @@ public class Main {
 
 	private static void move(int d, int s) {
 		Queue<int[]> q = new ArrayDeque<>();
+		boolean[][] visited = new boolean[N][N];
+		
 		for(int i = 0; i < N; i++) {			
 			for(int j = 0; j < N; j++) {
 				if(cloud[i][j]) q.offer(new int[] {i, j});
@@ -116,18 +105,14 @@ public class Main {
 		while(!q.isEmpty()) {
 			int[] cur = q.poll();
 			
-			int nx = cur[0] + dx[d] * s;
-			int ny = cur[1] + dy[d] * s;
+			int nx = (N + cur[0] + dx[d] * (s % N)) % N;
+			int ny = (N + cur[1] + dy[d] * (s % N)) % N;
 			
-			while(nx < 0) nx += N;
-			while(ny < 0) ny += N;
-			
-			while(nx > N-1) nx -= N;
-			while(ny > N-1) ny -= N;
-			
-			cloud[cur[0]][cur[1]] = false;
-			cloud[nx][ny] = true;
+			visited[nx][ny] = true;
+			map[nx][ny]++;
 		}
+		
+		cloud = visited;
 	}
 
 }
