@@ -1,0 +1,17 @@
+name: "[Haram] Create PR"
+on: push
+
+jobs:
+  create-pr-on-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@1.0.0
+    
+    - name: Create pull request
+      if: ${{ !contains(github.event.head_commit.message, 'Create') || github.event.pull_request.merged == false }}
+      uses: thomaseizinger/create-pull-request@master
+      with:
+        GITHUB_TOKEN: ${{ secrets.HARAM_ACTIONS_PR_TOKEN }}
+        head: ${{ HARAM_HEAD }}
+        base: main
+        title: "An automatically created PR for Haram!"
