@@ -1,10 +1,9 @@
 # SSAFY 11기 대전 7반 알고 스터디✍🏻
 ## 👥 스터디 멤버
-
 | 이건희             | 백하람               | 김나영               | 서두나                  | 이지수                                   |                                                                                                   
 | ----------------- | -------------------- | ------------------- | ----------------------- | --------------------------------------- | 
-| <img src="https://avatars.githubusercontent.com/u/92250144?v=4" alt='@GeonHui2' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/74824057?v=4" alt='@ramrami-B' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/96613100?v=4" alt='@skdudddl' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/70767115?v=4" alt='@ensk26' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/39691728?v=4" alt='@jisooolee' width="130" height="130"> | 
-| [@GeonHui2](https://github.com/GeonHui2) | [@ramrami-B](https://github.com/ramrami-B) | [@skdudddl](https://github.com/skdudddl) | [@ensk26](https://github.com/ensk26) | [@jisooolee](https://github.com/jisooolee)   
+| <img src="https://avatars.githubusercontent.com/u/92250144?v=4" alt='@GeonHui2' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/157570857?s=400&u=aae3ffb2481a6dfa41acc2e093cddf2f929bbc9f&v=4" alt='@ramrami-S' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/96613100?v=4" alt='@skdudddl' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/70767115?v=4" alt='@ensk26' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/39691728?v=4" alt='@jisooolee' width="130" height="130"> | 
+| [@GeonHui2](https://github.com/GeonHui2) | [@ramrami-S](https://github.com/ramrami-S) | [@skdudddl](https://github.com/skdudddl) | [@ensk26](https://github.com/ensk26) | [@jisooolee](https://github.com/jisooolee)   
 
 ## 💪🏻 스터디 진행 방식
 1. 이슈에 올라온 문제 풀기 (예시🔗)[https://github.com/Hanbat-Algo-Study/algorithm/issues/2]
