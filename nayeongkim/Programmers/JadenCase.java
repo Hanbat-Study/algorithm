@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-class Solution {
+class Solution_Jaden {
     public String solution(String s) {
         String[] str = s.toLowerCase().split("");
         String answer = "";
