@@ -1,0 +1,76 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {
+    static int result, maxY, maxX, now;
+    static int[][] arr;
+    static int[][] d = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    static ArrayList<Integer> box;
+    static boolean[][] visited;
+    
+    public int solution(int[][] land) {
+        result = 0;
+        maxY = land.length;
+        maxX = land[0].length;
+        arr = new int[maxY][maxX];
+        box = new ArrayList<>();
+        box.add(0);
+        now = 1;
+        visited = new boolean[maxY][maxX];
+        
+        for (int i = 0; i < maxY; i++) {
+            for (int j = 0; j < maxX; j++) {
+                if (land[i][j] == 1 && arr[i][j] == 0) {
+                    bfs(i, j, land);
+                }
+            }
+        }
+        
+        for (int i = 0; i < maxX; i++) {
+            int sum = 0;
+            boolean[] check = new boolean[box.size()];
+            
+            for (int j = 0; j < maxY; j++) {
+                if (0 < arr[j][i]) check[arr[j][i]] = true;
+            }
+            
+            for (int j = 0; j < box.size(); j++) {
+                if (check[j]) sum += box.get(j);
+            }
+            
+            result = Math.max(result, sum);
+        }
+        
+        return result;
+    }
+    
+    public static void bfs(int y, int x, int[][] land) {
+        Deque<int[]> q = new ArrayDeque<>();
+        int cnt = 1;
+        visited[y][x] = true;
+        arr[y][x] = now;
+        
+        q.offer(new int[] {y, x});
+        
+        while(!q.isEmpty()) {
+            int[] p = q.poll();
+            int ny = p[0];
+            int nx = p[1];
+            
+            for (int i = 0; i < 4; i++) {
+                int dy = ny + d[i][0];
+                int dx = nx + d[i][1];
+                
+                if (0 <= dy && dy < maxY && 0 <= dx && dx < maxX && visited[dy][dx] == false && land[dy][dx] == 1) {
+                    visited[dy][dx] = true;
+                    cnt += 1;
+                    arr[dy][dx] = now;
+                    q.offer(new int[] {dy, dx});
+                }
+            }
+        }
+        
+        now += 1;
+        box.add(cnt);
+    }
+}
