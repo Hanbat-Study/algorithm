@@ -1,0 +1,90 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
+
+		System.out.println(run(a, b, c));
+	}
+
+	static int run(int a, int b, int c) {
+
+		if (a == b && b == c) {
+			return 1;
+		}
+
+		int total = a + b + c;
+
+		if (total % 3 != 0) {
+			return 0;
+		}
+
+		Queue<int[]> q = new LinkedList<>();
+		boolean[][] visited = new boolean[1501][1501];
+
+		q.offer(new int[] { a, b });
+		visited[a][b] = true;
+
+		while (!q.isEmpty()) {
+			int[] cur = q.poll();
+
+			a = cur[0];
+			b = cur[1];
+			c = total - cur[0] - cur[1];
+
+			if (a == b && b == c) {
+				return 1;
+			}
+
+			// a,b
+			if (a > b) {
+				if (!visited[a - b][b + b]) {
+					q.offer(new int[] { a - b, b + b });
+					visited[a - b][b + b] = true;
+				}
+			} else {
+				if (!visited[a + a][b - a]) {
+					q.offer(new int[] { a + a, b - a });
+					visited[a + a][b - a] = true;
+				}
+			}
+
+			// a,c
+			if (a > c) {
+				if (!visited[a - c][c + c]) {
+					q.offer(new int[] { a - c, c + c });
+					visited[a - c][c + c] = true;
+				}
+
+			} else {
+				if (!visited[a + a][c - a]) {
+					q.offer(new int[] { a + a, c - a });
+					visited[a + a][c - a] = true;
+				}
+			}
+
+			// b,c
+			if (b > c) {
+				if (!visited[b - c][c + c]) {
+					q.offer(new int[] { b - c, c + c });
+					visited[b - c][c + c] = true;
+				}
+			} else {
+				if (!visited[b + b][c - b]) {
+					q.offer(new int[] { b + b, c - b });
+					visited[b + b][c - b] = true;
+				}
+			}
+		}
+		return 0;
+	}
+}
